@@ -6,5 +6,15 @@
   "ignoreWords": [],
   "import": [],
   "ignorePaths": ["node_modules", ".vscode", ".git/objects", "pnpm-lock.yaml", "*.snap", "public"],
-  "words": ["caladea", "clsx", "csstype", "esnext", "partialize", "testid", "vitest", "zustand"]
+  "words": [
+    "caladea",
+    "clsx",
+    "csstype",
+    "esnext",
+    "nextjs",
+    "partialize",
+    "testid",
+    "vitest",
+    "zustand"
+  ]
 }
