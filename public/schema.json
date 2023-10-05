@@ -1,0 +1,177 @@
+{
+  "$id": "https://game-completion-checklist.github.io/game-completion-checklist/schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/_AppChecklist",
+  "definitions": {
+    "_AppChecklist": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "description": "The schema of the data."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for a game."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the game."
+        },
+        "background-image": {
+          "$ref": "#/definitions/_AppChecklistImage",
+          "description": "The url of the background image for the game."
+        },
+        "thumbnail-image": {
+          "$ref": "#/definitions/_AppChecklistImage",
+          "description": "The thumbnail for the game in the menu."
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Text to display for the title."
+            },
+            "image": {
+              "$ref": "#/definitions/_AppChecklistImage",
+              "description": "The url of the image for the title."
+            }
+          },
+          "required": [
+            "text",
+            "image"
+          ],
+          "additionalProperties": false,
+          "description": "Object with the properties of the title."
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/_AppChecklistCategory"
+          },
+          "description": "The list of achievements for the game."
+        }
+      },
+      "required": [
+        "$schema",
+        "id",
+        "name",
+        "background-image",
+        "thumbnail-image",
+        "title",
+        "categories"
+      ],
+      "additionalProperties": false,
+      "description": "A list of achievements for a game to complete."
+    },
+    "_AppChecklistImage": {
+      "type": "object",
+      "properties": {
+        "background-color": {
+          "type": "string",
+          "description": "The color of the background in case the url does not work."
+        },
+        "text-color": {
+          "type": "string",
+          "description": "The color of the text on top of the image."
+        },
+        "src": {
+          "type": "string",
+          "description": "The url of the image for the title."
+        },
+        "alt": {
+          "type": "string",
+          "description": "The alt text for the image."
+        }
+      },
+      "required": [
+        "src",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "description": "Needed properties for a checklist image."
+    },
+    "_AppChecklistCategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for an achievement."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the achievement."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the achievement."
+        },
+        "image": {
+          "$ref": "#/definitions/_AppChecklistImage",
+          "description": "The url of the image for the achievement."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/_AppChecklistItem"
+          },
+          "description": "The list of items for the achievement."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "image",
+        "items"
+      ],
+      "additionalProperties": false,
+      "description": "Needed properties for a game checklist."
+    },
+    "_AppChecklistItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for an item."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the item."
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the item."
+        },
+        "href": {
+          "type": "string",
+          "description": "The url of the item."
+        },
+        "hint": {
+          "type": "string",
+          "description": "The hint for the item."
+        },
+        "percentage": {
+          "type": "number",
+          "description": "The percentage of the item."
+        },
+        "image": {
+          "$ref": "#/definitions/_AppChecklistImage",
+          "description": "The url of the image for the item."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "href",
+        "hint",
+        "percentage",
+        "image"
+      ],
+      "additionalProperties": false,
+      "description": "Needed properties for a checklist item."
+    }
+  }
+}
