@@ -1,12 +1,15 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
+
 import { useAppState } from '@app/state';
 import { Container } from '@app/components/container';
 import { Selectedgame } from '@app/components/selected-game';
 import { GameList } from '@app/components/game-list';
 
-export default function Home({ searchParams }: { searchParams: { game: string } }) {
-  const { game: gameId } = searchParams;
+export default function Home() {
+  const params = useSearchParams();
+  const gameId = params.get('game');
 
   const [selectedGame, loading] = useAppState((state) =>
     state.games.find((game) => game.id === gameId),
