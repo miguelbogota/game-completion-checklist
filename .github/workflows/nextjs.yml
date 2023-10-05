@@ -61,9 +61,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js
-        run: pnpm dlx build
+        run: pnpm dlx next build
       - name: Static HTML export with Next.js
-        run: pnpm dlx export
+        run: pnpm dlx next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
