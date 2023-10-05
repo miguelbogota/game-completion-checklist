@@ -6,4 +6,3 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {};
 
 export default withVanillaExtract(nextConfig);
-export {};
