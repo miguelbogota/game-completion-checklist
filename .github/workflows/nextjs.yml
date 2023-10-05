@@ -24,6 +24,9 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 
+env:
+  BASE_PATH: /game-completion-checklist
+
 jobs:
   # Build job
   build:

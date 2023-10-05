@@ -5,7 +5,7 @@ const withVanillaExtract = createVanillaExtractPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/game-completion-checklist',
+  basePath: process.env.BASE_PATH,
 };
 
 export default withVanillaExtract(nextConfig);
