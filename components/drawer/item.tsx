@@ -67,7 +67,7 @@ export function DrawerItem(props: DrawerItemProps) {
             loadPreset?.(id).then(() => {
               setLoading(false);
               toggle(false);
-              router.push(`/${id}`);
+              router.push(`/?game=${id}`);
             });
           }}
         >
@@ -75,9 +75,7 @@ export function DrawerItem(props: DrawerItemProps) {
         </button>
       ) : (
         <Link
-          href={{
-            search: `?game=${id}`,
-          }}
+          href={`/?game=${id}`}
           onClick={() => {
             // Close only if the route is different.
             if (gameId !== id) {
