@@ -75,7 +75,9 @@ export function DrawerItem(props: DrawerItemProps) {
         </button>
       ) : (
         <Link
-          href={`/${id}`}
+          href={{
+            search: `?game=${id}`,
+          }}
           onClick={() => {
             // Close only if the route is different.
             if (gameId !== id) {
