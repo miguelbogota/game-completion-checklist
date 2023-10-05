@@ -11,6 +11,7 @@
     "prepare": "husky install",
     "watch": "next dev -p 4000",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write .",
