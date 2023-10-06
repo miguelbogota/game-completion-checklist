@@ -117,8 +117,9 @@ export default [
     ignores: [
       'node_modules',
       'build',
-      'public',
+      'out',
       '.next',
+      'public',
       '*.ico',
       '*.log',
       '*.lock',

@@ -1,5 +1,3 @@
-import * as styles from './_styles.css';
-
 /**
  * Checklist header component props.
  */
@@ -24,15 +22,15 @@ export function ChecklistHeader(props: ChecklistHeaderProps) {
   } = props;
 
   return (
-    <div className={styles.header}>
-      <div className={styles.headerCaption}>
+    <div className="header">
+      <div className="caption">
         <img src={src} alt={alt} />
         <h3>{title}</h3>
-        <p className={styles.headerPercentage}>
+        <p className="percentage">
           {percentageCompleted}/{percentage}%
         </p>
       </div>
-      <p className={styles.description}>{description}</p>
+      <p className="description">{description}</p>
     </div>
   );
 }

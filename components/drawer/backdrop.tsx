@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
-import * as styles from './_styles.css';
-import { useDrawerState } from './_state';
+import { useDrawerState } from './state';
 
 /**
  * Drawer backdrop component.
@@ -15,7 +14,7 @@ export function DrawerBackdrop() {
       {open && (
         <motion.div
           onClick={() => toggle()}
-          className={styles.backdrop}
+          className="backdrop"
           initial="closed"
           exit="closed"
           animate="open"

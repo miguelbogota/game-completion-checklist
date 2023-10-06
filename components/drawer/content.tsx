@@ -1,8 +1,7 @@
 import { type PropsWithChildren } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import * as styles from './_styles.css';
-import { useDrawerState } from './_state';
+import { useDrawerState } from './state';
 
 /**
  * Drawer content component.
@@ -16,7 +15,7 @@ export function DrawerContent(props: PropsWithChildren) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className={styles.content}
+          className="content"
           initial="closed"
           exit="closed"
           animate="open"

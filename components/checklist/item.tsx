@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { useAppState } from '@app/state';
 import { useSelectedgame } from '@app/components/selected-game';
 
-import * as styles from './_styles.css';
-
 /**
  * Checklist item component props.
  */
@@ -38,7 +36,7 @@ export function ChecklistItem(props: ChecklistItemProps) {
 
   return (
     <motion.li
-      className={styles.item}
+      className="item"
       onMouseEnter={() => setShowHint(true)}
       onMouseLeave={() => setShowHint(false)}
       onClick={(e) => e.stopPropagation()}
@@ -48,8 +46,7 @@ export function ChecklistItem(props: ChecklistItemProps) {
       transition={{ type: 'spring', duration: 0.4, bounce: 0 }}
     >
       <input id={id} type="checkbox" checked={checked} onChange={() => toggleItem?.(path)} />
-
-      <span className={styles.itemIcon} />
+      <span className="checkbox-icon" />
 
       <a href={href} target="_blank" rel="noreferrer">
         <img src={src} alt={alt} />
@@ -58,7 +55,7 @@ export function ChecklistItem(props: ChecklistItemProps) {
 
       <label htmlFor={id}>
         {description}
-        {showHint && <p className={styles.itemHint}>{hint}</p>}
+        {showHint && <p className="hint">{hint}</p>}
       </label>
     </motion.li>
   );

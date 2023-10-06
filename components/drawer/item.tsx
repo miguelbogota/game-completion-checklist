@@ -5,8 +5,7 @@ import clsx from 'clsx';
 
 import { useAppState } from '@app/state';
 
-import * as styles from './_styles.css';
-import { useDrawerState } from './_state';
+import { useDrawerState } from './state';
 import { useState } from 'react';
 
 /**
@@ -29,8 +28,8 @@ export function DrawerItem(props: DrawerItemProps) {
   const toggle = useDrawerState((state) => state.toggle);
   const [loadPreset] = useAppState((state) => state.loadPreset);
 
-  const rootClasses = clsx(styles.item, {
-    [styles.itemPreset]: isPreset,
+  const rootClasses = clsx('item', {
+    'is-preset': isPreset,
   });
 
   return (

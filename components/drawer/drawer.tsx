@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
-import * as styles from './_styles.css';
-import { useDrawerState } from './_state';
+import { useDrawerState } from './state';
 
 import { DrawerToggle } from './toggle';
 import { DrawerContent } from './content';
@@ -16,7 +15,7 @@ export function Drawer() {
   const open = useDrawerState((state) => state.open);
 
   return (
-    <motion.nav className={styles.drawer} initial={false} animate={open ? 'open' : 'closed'}>
+    <motion.nav className="drawer" initial={false} animate={open ? 'open' : 'closed'}>
       <DrawerToggle />
 
       <DrawerContent>

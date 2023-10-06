@@ -1,8 +1,7 @@
 import { type ComponentPropsWithoutRef } from 'react';
 import { motion } from 'framer-motion';
 
-import * as styles from './_styles.css';
-import { useDrawerState } from './_state';
+import { useDrawerState } from './state';
 
 /**
  * Drawer toggle component.
@@ -11,11 +10,7 @@ export function DrawerToggle() {
   const toggle = useDrawerState((state) => state.toggle);
 
   return (
-    <button
-      className={styles.toggle}
-      title="hamburger menu to open drawer"
-      onClick={() => toggle()}
-    >
+    <button className="toggle" title="hamburger menu to open drawer" onClick={() => toggle()}>
       <svg width="20" height="20" viewBox="0 0 20 20">
         <Path
           variants={{
@@ -46,13 +41,5 @@ export function DrawerToggle() {
  * Helper path component.
  */
 function Path(props: ComponentPropsWithoutRef<typeof motion.path>) {
-  return (
-    <motion.path
-      className={styles.togglePath}
-      fill="transparent"
-      strokeWidth="3"
-      strokeLinecap="round"
-      {...props}
-    />
-  );
+  return <motion.path fill="transparent" strokeWidth="3" strokeLinecap="round" {...props} />;
 }

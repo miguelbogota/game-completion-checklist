@@ -3,8 +3,6 @@
 import { StandAloneNavigation } from '@app/components/drawer';
 import { Container } from '@app/components/container';
 
-import * as styles from './_styles.css';
-
 /**
  * Game item props.
  */
@@ -22,7 +20,7 @@ export function GameList(props: GameListProps) {
     <Container>
       <h1>{title}</h1>
       <p>Select a game from the menu:</p>
-      <div className={styles.gameList}>
+      <div className="game-list">
         <StandAloneNavigation />
       </div>
     </Container>

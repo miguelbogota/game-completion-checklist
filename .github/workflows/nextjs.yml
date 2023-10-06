@@ -1,13 +1,9 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
-#
-# To get started with Next.js see: https://nextjs.org/docs/getting-started
-#
 name: Deploy Next.js site to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['latest']
+    branches: ['release']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,6 +20,7 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 
+# Sets the environment variables needed for the project.
 env:
   BASE_PATH: /game-completion-checklist
 

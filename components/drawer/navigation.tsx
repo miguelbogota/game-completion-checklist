@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 
 import { useAppState } from '@app/state';
 
-import * as styles from './_styles.css';
 import { DrawerItem } from './item';
 
 /**
@@ -22,7 +21,7 @@ export function DrawerNavigation() {
     <motion.div layoutId={layoutId}>Loading...</motion.div>
   ) : (
     <motion.ul
-      className={styles.navigation}
+      className="navigation"
       layoutId={layoutId}
       initial="closed"
       exit="closed"

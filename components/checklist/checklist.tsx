@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useAppState } from '@app/state';
 import { useSelectedgame } from '@app/components/selected-game';
 
-import * as styles from './_styles.css';
 import { ChecklistItem } from './item';
 import { ChecklistHeader } from './header';
 
@@ -34,7 +33,7 @@ export function CheckList(props: CheckListProps) {
 
   return (
     <button
-      className={clsx(styles.checklist, isCompleted && styles.completed)}
+      className={clsx('checklist', isCompleted && 'is-completed')}
       onClick={() => {
         toggleCategory?.(path);
       }}
@@ -42,7 +41,7 @@ export function CheckList(props: CheckListProps) {
       <ChecklistHeader {...{ description, image, title, percentage, percentageCompleted }} />
 
       <motion.ul
-        className={styles.items}
+        className="items"
         initial={{ height: showItems ? 'auto' : 0 }}
         animate={{ height: showItems ? 'auto' : 0 }}
         exit={{ height: showItems ? 'auto' : 0 }}

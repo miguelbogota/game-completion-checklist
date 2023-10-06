@@ -1,14 +1,12 @@
 import { motion } from 'framer-motion';
 
-import * as styles from './_styles.css';
-
 /**
  * Drawer new game component.
  */
 export function DrawerNewGame() {
   return (
     <motion.button
-      className={styles.newGame}
+      className="new-game"
       variants={{
         open: {
           x: 0,
