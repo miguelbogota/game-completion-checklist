@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { useAppState } from '@app/state';
@@ -21,13 +21,13 @@ export function ChecklistItem(props: ChecklistItemProps) {
     title,
     description,
     href,
-    hint,
+    // hint,
     image: { alt, src },
     checked,
     categoryId,
   } = props;
 
-  const [showHint, setShowHint] = useState(false);
+  // const [showHint, setShowHint] = useState(false);
 
   const { game } = useSelectedgame();
   const [toggleItem] = useAppState((state) => state.toggleItem);
@@ -37,8 +37,8 @@ export function ChecklistItem(props: ChecklistItemProps) {
   return (
     <motion.li
       className="item"
-      onMouseEnter={() => setShowHint(true)}
-      onMouseLeave={() => setShowHint(false)}
+      // onMouseEnter={() => setShowHint(true)}
+      // onMouseLeave={() => setShowHint(false)}
       onClick={(e) => e.stopPropagation()}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -48,15 +48,17 @@ export function ChecklistItem(props: ChecklistItemProps) {
       <input id={id} type="checkbox" checked={checked} onChange={() => toggleItem?.(path)} />
       <span className="checkbox-icon" />
 
-      <a href={href} target="_blank" rel="noreferrer">
-        <img src={src} alt={alt} />
-        <h4>{title}</h4>
-      </a>
+      <div className="text">
+        <a href={href} target="_blank" rel="noreferrer">
+          <img src={src} alt={alt} />
+          <h4>{title}</h4>
+        </a>
 
-      <label htmlFor={id}>
-        {description}
-        {showHint && <p className="hint">{hint}</p>}
-      </label>
+        <label htmlFor={id}>
+          {description}
+          {/* {showHint && <p className="hint">{hint}</p>} */}
+        </label>
+      </div>
     </motion.li>
   );
 }

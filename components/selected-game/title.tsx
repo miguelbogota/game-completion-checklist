@@ -1,7 +1,7 @@
-import { useSelectedgame } from './context';
+import { useSelectedGame } from './context';
 
 export function SelectedGameTitle() {
-  const { game } = useSelectedgame();
+  const { game } = useSelectedGame();
 
   return (
     <div className="title">

@@ -3,14 +3,14 @@ import { createContext, useContext } from 'react';
 /**
  * Selected game context
  */
-const selectedgameContext = createContext<{ game: LocalChecklist }>({} as { game: LocalChecklist });
+const selectedGameContext = createContext<{ game: LocalChecklist }>({} as { game: LocalChecklist });
 
 /**
  * Selected game provider
  */
-export const SelectedgameProvider = selectedgameContext.Provider;
+export const SelectedGameProvider = selectedGameContext.Provider;
 
 /**
  * Selected game hook
  */
-export const useSelectedgame = () => useContext(selectedgameContext);
+export const useSelectedGame = () => useContext(selectedGameContext);

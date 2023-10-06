@@ -21,7 +21,7 @@ export type AppState = {
   /** Toggles a checklist item. */
   toggleItem: (path: string) => void;
   /** Resets the selected checklist (Makes all the items unchecked). */
-  resetChecklist: () => Promise<void>;
+  resetChecklist: (checklistId: string) => Promise<void>;
   /** Removes a checklist. */
   removeChecklist: (checklistId: string) => Promise<void>;
   /** Adds a new checklist. */
@@ -103,7 +103,34 @@ const useInnerAppState = createState<AppState>()(
         });
         set({ games: newGames });
       },
-      resetChecklist: async () => {},
+      resetChecklist: (checklistId) =>
+        new Promise((resolve) =>
+          setTimeout(() => {
+            const newGames = get().games.map((game) => {
+              if (game.id !== checklistId) {
+                return game;
+              }
+
+              const newCategories = game.categories.map((category) => {
+                const newItems = category.items.map(
+                  (item) => ({ ...item, checked: false }) as LocalChecklistItem,
+                );
+
+                return {
+                  ...category,
+                  items: newItems,
+                };
+              });
+
+              return {
+                ...game,
+                categories: newCategories,
+              };
+            });
+            set({ games: newGames });
+            resolve();
+          }, 1000),
+        ),
       removeChecklist: async () => {},
       loadNewChecklist: async () => {},
       editChecklist: async () => {},

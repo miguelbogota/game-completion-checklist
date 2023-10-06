@@ -8,37 +8,15 @@ import { type PropsWithChildren } from 'react';
  */
 export type ContainerProps = PropsWithChildren<{
   className?: string;
-  background?: {
-    image?: string;
-    color?: string;
-    text?: string;
-  };
 }>;
 
 /**
  * Container component.
  */
 export function Container(props: ContainerProps) {
-  const { children, className, background } = props;
+  const { children, className } = props;
 
   const rootClasses = clsx('container', className);
 
-  if (!background) {
-    return <main className={rootClasses}>{children}</main>;
-  }
-
-  const { image, color, text } = background;
-
-  return (
-    <div
-      className="container-background"
-      style={{
-        ...(image && { backgroundImage: `url('${image}')` }),
-        ...(color && { backgroundColor: color }),
-        ...(text && { color: text }),
-      }}
-    >
-      <main className={rootClasses}>{children}</main>
-    </div>
-  );
+  return <main className={rootClasses}>{children}</main>;
 }

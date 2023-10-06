@@ -7,17 +7,4 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  color: inherit;
-
-  &-background {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    user-select: none;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
 }

@@ -3,8 +3,10 @@
 import { Container } from '@app/components/container';
 import { CheckList } from '@app/components/checklist';
 
-import { SelectedgameProvider } from './context';
+import { SelectedGameProvider } from './context';
 import { SelectedGameTitle } from './title';
+import { ResetButton } from './menu';
+import { Background } from './background';
 
 /**
  * Selected game props.
@@ -20,15 +22,9 @@ export function Selectedgame(props: SelectedGameProps) {
   const { game } = props;
 
   return (
-    <SelectedgameProvider value={{ game }}>
-      <Container
-        className="selected-game"
-        background={{
-          color: game['background-image']['background-color'],
-          image: game['background-image'].src,
-          text: game['background-image']['text-color'],
-        }}
-      >
+    <SelectedGameProvider value={{ game }}>
+      <ResetButton />
+      <Container className="selected-game">
         <SelectedGameTitle />
 
         <div className="categories">
@@ -37,6 +33,8 @@ export function Selectedgame(props: SelectedGameProps) {
           ))}
         </div>
       </Container>
-    </SelectedgameProvider>
+
+      <Background {...game['background-image']} />
+    </SelectedGameProvider>
   );
 }

@@ -27,7 +27,7 @@ export function ChecklistHeader(props: ChecklistHeaderProps) {
         <img src={src} alt={alt} />
         <h3>{title}</h3>
         <p className="percentage">
-          {percentageCompleted}/{percentage}%
+          {percentageCompleted}/{percentage}
         </p>
       </div>
       <p className="description">{description}</p>
