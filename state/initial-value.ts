@@ -33,9 +33,11 @@ function checklistTransformer(defaultGames: AppChecklist[]) {
         isPreset: true,
         categories: checklist.categories.map((category) => ({
           ...category,
+          id: category.id + '-' + (i + 1),
           showItems: true,
           items: category.items.map((item) => ({
             ...item,
+            id: item.id + '-' + (i + 1),
             checked: false,
           })),
         })),
