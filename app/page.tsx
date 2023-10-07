@@ -7,7 +7,7 @@ import { Container } from '@app/components/container';
 import { Selectedgame } from '@app/components/selected-game';
 import { GameList } from '@app/components/game-list';
 
-export default function Home() {
+export default function Page() {
   const params = useSearchParams();
   const gameId = params.get('game');
 

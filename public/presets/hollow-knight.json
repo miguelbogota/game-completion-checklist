@@ -5,8 +5,7 @@
   "background-image": {
     "background-color": "#000000",
     "text-color": "#ffffff",
-    "src": "/images/hollow-knight/background.png",
-    "alt": "Image with the hollow knight title"
+    "src": "/images/hollow-knight/background.png"
   },
   "thumbnail-image": {
     "src": "/images/hollow-knight/title.png",
@@ -35,7 +34,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -47,7 +45,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -59,7 +56,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -71,7 +67,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -94,7 +89,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -106,7 +100,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -118,7 +111,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"
@@ -130,7 +122,6 @@
           "description": "Acquired from the Snail Shaman in Greenpath",
           "href": "https://hollowknight.fandom.com/wiki/Mask_Shard",
           "hint": "Can be found in the Snail Shaman's hut in Greenpath",
-          "percentage": 1,
           "image": {
             "src": "/images/hollow-knight/health-piece.png",
             "alt": "Mask Shard icon"

@@ -1,5 +1,38 @@
 @use 'styles/functions';
 
+/** Mixin for the drawer and the standalone component. */
+@mixin navigation {
+  & > .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    & > .item {
+      &.is-preset {
+        & > button,
+        & > a {
+          border: 2px dashed #000000;
+        }
+
+        &:not(.is-preset ~ .is-preset) {
+          margin-top: 2rem;
+        }
+      }
+
+      & > button,
+      & > a {
+        display: flex;
+        padding: 1rem;
+        cursor: pointer;
+        background-color: #00000017;
+        width: 100%;
+        color: #000000;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
 .drawer {
   width: fit-content;
   height: fit-content;
@@ -27,26 +60,27 @@
   }
 
   & > .content {
+    display: flex;
+    padding: 0.8rem;
+    flex-direction: column;
     width: 20rem;
     height: 100vh;
     background-color: var(--background-sheet);
     padding-top: 5rem;
     z-index: 20;
 
-    & > .navigation {
-      display: flex;
-      flex-direction: column;
-      padding: 0.8rem;
-      gap: 0.4rem;
+    @include navigation;
 
-      & > .item {
-        display: flex;
-        padding: 1rem;
-        cursor: pointer;
-        background-color: #00000017;
-        width: 100%;
-        color: #000000;
-      }
+    & > .new-game {
+      margin-top: auto;
+      display: flex;
+      padding: 1rem;
+      cursor: pointer;
+      background-color: #00000017;
+      width: 100%;
+      color: #000000;
+      border-radius: 5px;
+      border: 2px dashed #323232;
     }
   }
 
@@ -61,4 +95,11 @@
     background-color: functions.reduce-transparency(var(--black), 95%);
     z-index: -1;
   }
+}
+
+.standalone-navigation {
+  width: 100%;
+  padding: 0.8rem;
+
+  @include navigation;
 }

@@ -23,11 +23,8 @@ export function CheckList(props: CheckListProps) {
   const { game } = useSelectedgame();
   const [toggleCategory] = useAppState((state) => state.toggleCategory);
 
-  const percentage = items.reduce((acc, item) => acc + item.percentage, 0);
-  const percentageCompleted = items.reduce(
-    (acc, item) => acc + (item.checked ? item.percentage : 0),
-    0,
-  );
+  const percentage = items.length;
+  const percentageCompleted = items.reduce((acc, item) => acc + (item.checked ? 1 : 0), 0);
   const isCompleted = percentage === percentageCompleted;
   const path = `${game.id}.${id}`;
 
@@ -58,9 +55,9 @@ export function CheckList(props: CheckListProps) {
                   const newData = items.map((newItem) =>
                     newItem.id === item.id ? { ...newItem, checked: !newItem.checked } : newItem,
                   );
-                  const _percent = newData.reduce((acc, item) => acc + item.percentage, 0);
+                  const _percent = newData.length;
                   const _percentCompleted = newData.reduce(
-                    (acc, item) => acc + (item.checked ? item.percentage : 0),
+                    (acc, item) => acc + (item.checked ? 1 : 0),
                     0,
                   );
                   const _isCompleted = _percent === _percentCompleted;

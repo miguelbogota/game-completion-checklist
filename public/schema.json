@@ -19,11 +19,29 @@
           "description": "The name of the game."
         },
         "background-image": {
-          "$ref": "#/definitions/_AppChecklistImage",
+          "type": "object",
+          "properties": {
+            "background-color": {
+              "type": "string",
+              "description": "The color of the background in case the url does not work."
+            },
+            "text-color": {
+              "type": "string",
+              "description": "The color of the text on top of the image."
+            },
+            "src": {
+              "type": "string",
+              "description": "The url of the image for the title."
+            }
+          },
+          "required": [
+            "src"
+          ],
+          "additionalProperties": false,
           "description": "The url of the background image for the game."
         },
         "thumbnail-image": {
-          "$ref": "#/definitions/_AppChecklistImage",
+          "$ref": "#/definitions/global.AppChecklistImage",
           "description": "The thumbnail for the game in the menu."
         },
         "title": {
@@ -34,7 +52,7 @@
               "description": "Text to display for the title."
             },
             "image": {
-              "$ref": "#/definitions/_AppChecklistImage",
+              "$ref": "#/definitions/global.AppChecklistImage",
               "description": "The url of the image for the title."
             }
           },
@@ -48,7 +66,7 @@
         "categories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/_AppChecklistCategory"
+            "$ref": "#/definitions/global.AppChecklistCategory"
           },
           "description": "The list of achievements for the game."
         }
@@ -64,6 +82,10 @@
       ],
       "additionalProperties": false,
       "description": "A list of achievements for a game to complete."
+    },
+    "global.AppChecklistImage": {
+      "$ref": "#/definitions/_AppChecklistImage",
+      "description": "Needed properties for a checklist image."
     },
     "_AppChecklistImage": {
       "type": "object",
@@ -92,6 +114,10 @@
       "additionalProperties": false,
       "description": "Needed properties for a checklist image."
     },
+    "global.AppChecklistCategory": {
+      "$ref": "#/definitions/_AppChecklistCategory",
+      "description": "Needed properties for a game checklist."
+    },
     "_AppChecklistCategory": {
       "type": "object",
       "properties": {
@@ -108,13 +134,13 @@
           "description": "The description of the achievement."
         },
         "image": {
-          "$ref": "#/definitions/_AppChecklistImage",
+          "$ref": "#/definitions/global.AppChecklistImage",
           "description": "The url of the image for the achievement."
         },
         "items": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/_AppChecklistItem"
+            "$ref": "#/definitions/global.AppChecklistItem"
           },
           "description": "The list of items for the achievement."
         }
@@ -128,6 +154,10 @@
       ],
       "additionalProperties": false,
       "description": "Needed properties for a game checklist."
+    },
+    "global.AppChecklistItem": {
+      "$ref": "#/definitions/_AppChecklistItem",
+      "description": "Needed properties for a checklist item."
     },
     "_AppChecklistItem": {
       "type": "object",
@@ -152,12 +182,8 @@
           "type": "string",
           "description": "The hint for the item."
         },
-        "percentage": {
-          "type": "number",
-          "description": "The percentage of the item."
-        },
         "image": {
-          "$ref": "#/definitions/_AppChecklistImage",
+          "$ref": "#/definitions/global.AppChecklistImage",
           "description": "The url of the image for the item."
         }
       },
@@ -167,7 +193,6 @@
         "description",
         "href",
         "hint",
-        "percentage",
         "image"
       ],
       "additionalProperties": false,

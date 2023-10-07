@@ -1,5 +1,5 @@
 /** A list of achievements for a game to complete. */
-type AppChecklist = {
+export type _AppChecklist = {
   /** The schema of the data. */
   $schema: string;
   /** The unique identifier for a game. */
@@ -22,7 +22,7 @@ type AppChecklist = {
 };
 
 /** Needed properties for a game checklist. */
-type AppChecklistCategory = {
+export type _AppChecklistCategory = {
   /** The unique identifier for an achievement. */
   id: string;
   /** The title of the achievement. */
@@ -36,7 +36,7 @@ type AppChecklistCategory = {
 };
 
 /** Needed properties for a checklist item. */
-type AppChecklistItem = {
+export type _AppChecklistItem = {
   /** The unique identifier for an item. */
   id: string;
   /** The title of the item. */
@@ -47,14 +47,12 @@ type AppChecklistItem = {
   href: string;
   /** The hint for the item. */
   hint: string;
-  /** The percentage of the item. */
-  percentage: number;
   /** The url of the image for the item. */
   image: AppChecklistImage;
 };
 
 /** Needed properties for a checklist image. */
-type AppChecklistImage = {
+export type _AppChecklistImage = {
   /** The color of the background in case the url does not work. */
   'background-color'?: string;
   /** The color of the text on top of the image. */
@@ -68,9 +66,11 @@ type AppChecklistImage = {
 /**
  * Type for the app state.
  */
-type LocalChecklist = Omit<AppChecklist, '$schema' | 'categories'> & {
-  /** Completion percentage of the game (It is calculated by the client). */
-  completionPercentage: number;
+export type _LocalChecklist = Omit<AppChecklist, '$schema' | 'categories'> & {
+  /** Count of the items completed (percentage is calculated in the client). */
+  itemsCompleted: number;
+  /** Count of the items. */
+  itemsCount: number;
   /** Property to check if os only a present or an available checklist. */
   isPreset: boolean;
   /** The list of achievements for the game. */
@@ -80,7 +80,7 @@ type LocalChecklist = Omit<AppChecklist, '$schema' | 'categories'> & {
 /**
  * Type for the app state category.
  */
-type LocalChecklistCategory = Omit<AppChecklistCategory, 'items'> & {
+export type _LocalChecklistCategory = Omit<AppChecklistCategory, 'items'> & {
   /** Local property to handle the state of the dropdown. */
   showItems: true;
   /** The list of items for the achievement. */
@@ -90,7 +90,24 @@ type LocalChecklistCategory = Omit<AppChecklistCategory, 'items'> & {
 /**
  * Type for the app state category item.
  */
-type LocalChecklistItem = AppChecklistItem & {
+export type _LocalChecklistItem = AppChecklistItem & {
   /** Local property to handle the state of the checkbox. */
   checked: boolean;
 };
+
+declare global {
+  /** A list of achievements for a game to complete. */
+  export type AppChecklist = _AppChecklist;
+  /** Needed properties for a game checklist. */
+  export type AppChecklistCategory = _AppChecklistCategory;
+  /** Needed properties for a checklist item. */
+  export type AppChecklistItem = _AppChecklistItem;
+  /** Needed properties for a checklist image. */
+  export type AppChecklistImage = _AppChecklistImage;
+  /** Type for the app state. */
+  export type LocalChecklist = _LocalChecklist;
+  /** Type for the app state category. */
+  export type LocalChecklistCategory = _LocalChecklistCategory;
+  /** Type for the app state category item. */
+  export type LocalChecklistItem = _LocalChecklistItem;
+}

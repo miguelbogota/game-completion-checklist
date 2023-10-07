@@ -29,7 +29,11 @@ function checklistTransformer(defaultGames: AppChecklist[]) {
         ...checklist,
         id: checklist.id + '-' + (i + 1),
         name: checklist.name + ' ' + (i + 1),
-        completionPercentage: 0,
+        itemsCompleted: 0,
+        itemsCount: checklist.categories.reduce(
+          (count, category) => count + category.items.length,
+          0,
+        ),
         isPreset: true,
         categories: checklist.categories.map((category) => ({
           ...category,

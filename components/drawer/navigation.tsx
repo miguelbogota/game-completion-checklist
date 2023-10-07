@@ -54,5 +54,9 @@ export function DrawerNavigation() {
  * Drawer navigation component to be used outside of the drawer.
  */
 export function StandAloneNavigation() {
-  return <DrawerNavigation />;
+  return (
+    <div className="standalone-navigation">
+      <DrawerNavigation />
+    </div>
+  );
 }

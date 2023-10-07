@@ -73,31 +73,39 @@ const useInnerAppState = createState<AppState>()(
       },
       toggleItem: (path) => {
         const [gameId, categoryId, itemId] = path.split('.');
+
+        let itemCount = 0;
+        let itemCheckedCount = 0;
+
         const newGames = get().games.map((game) => {
           if (game.id !== gameId) {
             return game;
           }
 
           const newCategories = game.categories.map((category) => {
-            if (category.id !== categoryId) {
-              return category;
-            }
+            const newItems = category.items.map((item) => {
+              const newItem = (
+                item.id !== itemId ? item : { ...item, checked: !item.checked }
+              ) as LocalChecklistItem;
 
-            const newItems = category.items.map(
-              (item) =>
-                (item.id !== itemId
-                  ? item
-                  : { ...item, checked: !item.checked }) as LocalChecklistItem,
-            );
+              itemCount += 1;
+              itemCheckedCount += newItem.checked ? 1 : 0;
 
-            return {
-              ...category,
-              items: newItems,
-            };
+              return newItem;
+            });
+
+            return category.id !== categoryId
+              ? category
+              : {
+                  ...category,
+                  items: newItems,
+                };
           });
 
           return {
             ...game,
+            itemsCompleted: itemCheckedCount,
+            itemsCount: itemCount,
             categories: newCategories,
           };
         });
