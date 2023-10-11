@@ -1,33 +1,46 @@
 @use 'styles/functions';
+@use 'styles/mixins';
 
 /** Mixin for the drawer and the standalone component. */
 @mixin navigation {
+  & > .title {
+    font-size: 1.6rem;
+    font-weight: 200;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   & > .navigation {
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 1.3rem 0px;
 
     & > .item {
-      &.is-preset {
-        & > button,
-        & > a {
-          border: 2px dashed #000000;
-        }
-
-        &:not(.is-preset ~ .is-preset) {
-          margin-top: 2rem;
-        }
-      }
+      display: flex;
+      width: 100%;
 
       & > button,
       & > a {
         display: flex;
         padding: 1rem;
         cursor: pointer;
-        background-color: #00000017;
         width: 100%;
-        color: #000000;
         border-radius: 5px;
+      }
+    }
+
+    &.available {
+      margin-bottom: 1rem;
+    }
+
+    &.presets {
+      & > .item {
+        & > button,
+        & > a {
+          border: 2px dashed var(--text-disabled);
+        }
       }
     }
   }
@@ -37,7 +50,7 @@
   width: fit-content;
   height: fit-content;
   position: fixed;
-  z-index: 300;
+  z-index: var(--drawer);
   top: 0px;
   left: 0px;
 
@@ -50,7 +63,7 @@
     margin: 1rem;
     background-color: var(--background-sheet);
     position: absolute;
-    z-index: 100;
+    z-index: calc(var(--drawer) - 100);
     border-radius: 50%;
     cursor: pointer;
 
@@ -67,7 +80,8 @@
     height: 100vh;
     background-color: var(--background-sheet);
     padding-top: 5rem;
-    z-index: 20;
+    overflow-x: auto;
+    z-index: calc(var(--drawer) - 200);
 
     @include navigation;
 
@@ -76,9 +90,7 @@
       display: flex;
       padding: 1rem;
       cursor: pointer;
-      background-color: #00000017;
       width: 100%;
-      color: #000000;
       border-radius: 5px;
       border: 2px dashed #323232;
     }
@@ -99,7 +111,16 @@
 
 .standalone-navigation {
   width: 100%;
-  padding: 0.8rem;
 
   @include navigation;
+
+  & > .navigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10rem, 1fr));
+
+    @include mixins.small-device {
+      gap: 0.2rem;
+      grid-template-columns: repeat(1, minmax(10rem, 1fr));
+    }
+  }
 }

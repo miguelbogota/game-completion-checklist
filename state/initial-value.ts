@@ -9,6 +9,10 @@ export const defaultGames: LocalChecklist[] = checklistTransformer([
   hollowKnightPreset,
   hollowKnightPreset,
   hollowKnightPreset,
+  hollowKnightPreset,
+  hollowKnightPreset,
+  hollowKnightPreset,
+  hollowKnightPreset,
 ]);
 
 /**
@@ -34,6 +38,7 @@ function checklistTransformer(defaultGames: AppChecklist[]) {
           (count, category) => count + category.items.length,
           0,
         ),
+        completed: false,
         isPreset: true,
         categories: checklist.categories.map((category) => ({
           ...category,

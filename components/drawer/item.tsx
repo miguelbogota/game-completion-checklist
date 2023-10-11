@@ -1,8 +1,7 @@
 import { type PropsWithChildren, useState, type ComponentProps } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
-import clsx from 'clsx';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 import { useAppState } from '@app/state';
 
@@ -23,18 +22,16 @@ export function DrawerItem(props: DrawerItemProps) {
 
   const [loading, setLoading] = useState(false);
 
-  const { gameId } = useParams();
+  const searchParams = useSearchParams();
   const router = useRouter();
   const toggle = useDrawerState((state) => state.toggle);
   const [loadPreset] = useAppState((state) => state.loadPreset);
 
-  const rootClasses = clsx('item', {
-    'is-preset': isPreset,
-  });
+  const gameId = searchParams.get('game');
 
   return (
     <motion.li
-      className={rootClasses}
+      className="item"
       variants={{
         open: {
           x: 0,
@@ -110,7 +107,14 @@ function ItemCard(props: ItemCardProps) {
     return <div>Loading...</div>;
   }
 
-  const { name, itemsCompleted, itemsCount, 'thumbnail-image': image } = props;
+  const {
+    name,
+    itemsCompleted,
+    itemsCount,
+    'thumbnail-image': image,
+    isPreset,
+    isCompleted,
+  } = props;
 
   const completionPercentage = Math.round((itemsCompleted / itemsCount) * 100);
 
@@ -129,11 +133,12 @@ function ItemCard(props: ItemCardProps) {
       )}
       <div>
         <h4>{name}</h4>
-        <span>
+        <div>
           {itemsCompleted}/{itemsCount}
-        </span>
-        <br />
-        <span>{completionPercentage}/100%</span>
+        </div>
+        <div>{completionPercentage}/100%</div>
+        {isPreset && <div>Load Preset</div>}
+        {isCompleted && <div>Completed</div>}
       </div>
     </div>
   );
@@ -162,7 +167,7 @@ function ItemLink(props: ItemLinkProps) {
       {children}
     </button>
   ) : (
-    <Link {...otherProps} href={`/?game=${id}`} onClick={onLinkClick}>
+    <Link {...otherProps} scroll={false} href={`/?game=${id}`} onClick={onLinkClick}>
       {children}
     </Link>
   );

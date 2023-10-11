@@ -106,6 +106,7 @@ const useInnerAppState = createState<AppState>()(
             ...game,
             itemsCompleted: itemCheckedCount,
             itemsCount: itemCount,
+            isCompleted: itemCheckedCount === itemCount,
             categories: newCategories,
           };
         });
@@ -132,6 +133,12 @@ const useInnerAppState = createState<AppState>()(
 
               return {
                 ...game,
+                itemsCompleted: 0,
+                itemsCount: newCategories.reduce(
+                  (count, category) => count + category.items.length,
+                  0,
+                ),
+                isCompleted: false,
                 categories: newCategories,
               };
             });

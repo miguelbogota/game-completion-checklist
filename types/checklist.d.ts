@@ -71,6 +71,8 @@ export type _LocalChecklist = Omit<AppChecklist, '$schema' | 'categories'> & {
   itemsCompleted: number;
   /** Count of the items. */
   itemsCount: number;
+  /** Property to check if all items are completed. */
+  isCompleted: boolean;
   /** Property to check if os only a present or an available checklist. */
   isPreset: boolean;
   /** The list of achievements for the game. */

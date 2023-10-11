@@ -1,3 +1,3 @@
 'use client';
 
-export { useAppState } from './_state';
+export { useAppState, type AppState } from './_state';
